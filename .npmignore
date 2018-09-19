@@ -1,0 +1,8 @@
+# Ignore configuration root files
+.editorconfig
+.eslintignore
+.eslintrc.json
+.prettierrc.json
+
+# Test source files
+test
