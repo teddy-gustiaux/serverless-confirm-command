@@ -1,0 +1,50 @@
+{
+  "name": "serverless-confirm-command",
+  "version": "0.0.1",
+  "description": "Serverless plugin making commands (and optionally stages) requiring confirmation before running",
+  "author": "Teddy Gustiaux <code@gustiaux.com>",
+  "license": "MIT",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teddy-gustiaux/serverless-confirm-command.git"
+  },
+  "bugs": {
+    "url": "https://github.com/teddy-gustiaux/serverless-confirm-command/issues"
+  },
+  "homepage": "https://github.com/teddy-gustiaux/serverless-confirm-command#readme",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "serverless",
+    "confirm",
+    "command",
+    "stage"
+  ],
+  "scripts": {
+    "lint:all": "eslint --config .eslintrc.json . --ext .js",
+    "lint:file": "eslint --config .eslintrc.json",
+    "fix:all": "eslint --config .eslintrc.json . --ext .js --fix",
+    "fix:file": "eslint --config .eslintrc.json --fix",
+    "test:all": "nyc mocha --recursive",
+    "test:file": "nyc mocha",
+    "test:watch": "mocha --watch"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "4.1.2",
+    "dirty-chai": "2.0.1",
+    "eslint": "5.6.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-config-prettier": "3.0.1",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-prettier": "2.6.2",
+    "mocha": "5.2.0",
+    "nyc": "13.0.1",
+    "prettier": "1.14.2",
+    "serverless": "^1.32.0",
+    "sinon": "6.3.4",
+    "sinon-chai": "3.2.0"
+  }
+}
