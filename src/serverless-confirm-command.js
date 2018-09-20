@@ -34,22 +34,22 @@ class ServerlessConfirmCommand {
         return commandMustBeConfirmed || stageMustBeConfirmed || pairMustBeConfirmed;
     }
 
-    deploymentConfirmed() {
-        this.serverlessLog('Deployment confirmed. Proceeding...');
+    commandConfirmed() {
+        this.serverlessLog('Command confirmed. Proceeding...');
     }
 
-    deploymentNotConfirmed() {
+    commandNotConfirmed() {
         throw new this.serverless.classes.Error(
-            'Deployment not confirmed. Use [--confirm] or change the configuration of the plugin.',
+            'Command not confirmed. Use [--confirm] or change the configuration of the plugin.',
         );
     }
 
     checkConfirmation() {
         if (this.mustBeConfirmed()) {
             if (this.options.confirm === true) {
-                this.deploymentConfirmed();
+                this.commandConfirmed();
             } else {
-                this.deploymentNotConfirmed();
+                this.commandNotConfirmed();
             }
         }
     }
