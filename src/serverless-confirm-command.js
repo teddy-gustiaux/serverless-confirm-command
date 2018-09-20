@@ -8,7 +8,6 @@ class ServerlessConfirmCommand {
         if (serverless.processedInput.commands.length > 0) {
             [this.command] = serverless.processedInput.commands;
         }
-        this.stage = serverless.service.provider.stage;
 
         const defaultConfiguration = {
             commands: [],
@@ -45,6 +44,7 @@ class ServerlessConfirmCommand {
     }
 
     checkConfirmation() {
+        this.stage = this.serverless.service.provider.stage;
         if (this.mustBeConfirmed()) {
             if (this.options.confirm === true) {
                 this.commandConfirmed();
