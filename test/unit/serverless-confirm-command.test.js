@@ -4,7 +4,7 @@ const dirtyChai = require('dirty-chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 // Local dependencies
-const ServerlessConfirmCommand = require('../src/index.js');
+const ServerlessConfirmCommand = require('../../src/serverless-confirm-command.js');
 
 use(sinonChai);
 use(dirtyChai);
