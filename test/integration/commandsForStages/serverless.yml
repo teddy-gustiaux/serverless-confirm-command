@@ -1,0 +1,20 @@
+service: test-integration-commandsForStages
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${opt:stage, 'dev'}
+
+functions:
+  hello:
+    handler: handler.hello
+
+plugins:
+  localPath: '../../../src'
+  modules:
+  - serverless-confirm-command
+
+custom:
+  confirm:
+    commandsForStages:
+      - 'remove:prod'
