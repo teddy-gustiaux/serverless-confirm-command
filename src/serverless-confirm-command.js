@@ -43,8 +43,12 @@ class ServerlessConfirmCommand {
         );
     }
 
-    checkConfirmation() {
+    populateStage() {
         this.stage = this.serverless.service.provider.stage;
+    }
+
+    checkConfirmation() {
+        this.populateStage();
         if (this.mustBeConfirmed()) {
             if (this.options.confirm === true) {
                 this.commandConfirmed();

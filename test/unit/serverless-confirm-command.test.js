@@ -122,6 +122,7 @@ describe('Unit tests of the plugin', () => {
         const setupTestWith = stageList => {
             const runTestWith = (processedCommands, stage, custom) => {
                 const plugin = constructPlugin(processedCommands, stage, custom);
+                plugin.populateStage();
                 expect(plugin.mustBeConfirmed()).to.be.true();
             };
             const custom = buildCustomConfirm([], stageList, []);
@@ -154,6 +155,7 @@ describe('Unit tests of the plugin', () => {
         const setupTestWith = commandsForStagesList => {
             const runTestWith = (processedCommands, stage, custom) => {
                 const plugin = constructPlugin(processedCommands, stage, custom);
+                plugin.populateStage();
                 expect(plugin.mustBeConfirmed()).to.be.true();
             };
             const custom = buildCustomConfirm([], [], commandsForStagesList);
