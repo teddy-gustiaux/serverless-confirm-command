@@ -7,13 +7,12 @@ use(dirtyChai);
 
 describe('Integration tests of the plugin - using commands only', () => {
     const folder = 'commands';
+    const pathToServerlessFramework = '../../../../node_modules/serverless/bin/serverless';
 
     it('should indicate the command as not confirmed if the option is not provided', () => {
-        const subprocess = spawnSync(
-            'node',
-            ['../../../node_modules/serverless/bin/serverless', 'deploy'],
-            { cwd: `${__dirname}/${folder}` },
-        );
+        const subprocess = spawnSync('node', [pathToServerlessFramework, 'deploy'], {
+            cwd: `${__dirname}/${folder}`,
+        });
         const stdout = subprocess.stdout.toString('utf-8');
         const notConfirmed = stdout.includes('Command not confirmed.');
         const serverlessError = stdout.includes('Serverless Error');
@@ -22,11 +21,9 @@ describe('Integration tests of the plugin - using commands only', () => {
     }).timeout(5000);
 
     it('should indicate the command as confirmed if the option is provided', () => {
-        const subprocess = spawnSync(
-            'node',
-            ['../../../node_modules/serverless/bin/serverless', 'deploy', '--confirm'],
-            { cwd: `${__dirname}/${folder}` },
-        );
+        const subprocess = spawnSync('node', [pathToServerlessFramework, 'deploy', '--confirm'], {
+            cwd: `${__dirname}/${folder}`,
+        });
         const stdout = subprocess.stdout.toString('utf-8');
         const confirmed = stdout.includes('Command confirmed.');
         const serverlessError = stdout.includes('Serverless Error');
@@ -35,11 +32,9 @@ describe('Integration tests of the plugin - using commands only', () => {
     }).timeout(5000);
 
     it('should not do anything if the command does not require confirmation', () => {
-        const subprocess = spawnSync(
-            'node',
-            ['../../../node_modules/serverless/bin/serverless', 'remove'],
-            { cwd: `${__dirname}/${folder}` },
-        );
+        const subprocess = spawnSync('node', [pathToServerlessFramework, 'remove'], {
+            cwd: `${__dirname}/${folder}`,
+        });
         const stdout = subprocess.stdout.toString('utf-8');
         const confirmed = stdout.includes('Command confirmed.');
         const notConfirmed = stdout.includes('Command not confirmed.');

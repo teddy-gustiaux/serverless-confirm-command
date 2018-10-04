@@ -5,13 +5,14 @@ const dirtyChai = require('dirty-chai');
 
 use(dirtyChai);
 
-describe('Integration tests of the plugin - using command and stage pairs', () => {
+describe('Integration tests of the plugin - using command and AWS stage pairs', () => {
     const folder = 'commandsForStages';
+    const pathToServerlessFramework = '../../../../node_modules/serverless/bin/serverless';
 
     it('should indicate the command as not confirmed if the option is not provided', () => {
         const subprocess = spawnSync(
             'node',
-            ['../../../node_modules/serverless/bin/serverless', 'remove', '--stage', 'prod'],
+            [pathToServerlessFramework, 'remove', '--stage', 'prod'],
             { cwd: `${__dirname}/${folder}` },
         );
         const stdout = subprocess.stdout.toString('utf-8');
@@ -24,13 +25,7 @@ describe('Integration tests of the plugin - using command and stage pairs', () =
     it('should indicate the command as confirmed if the option is provided', () => {
         const subprocess = spawnSync(
             'node',
-            [
-                '../../../node_modules/serverless/bin/serverless',
-                'remove',
-                '--stage',
-                'prod',
-                '--confirm',
-            ],
+            [pathToServerlessFramework, 'remove', '--stage', 'prod', '--confirm'],
             { cwd: `${__dirname}/${folder}` },
         );
         const stdout = subprocess.stdout.toString('utf-8');
@@ -41,11 +36,9 @@ describe('Integration tests of the plugin - using command and stage pairs', () =
     }).timeout(5000);
 
     it('should not do anything if the command does not require confirmation', () => {
-        const subprocess = spawnSync(
-            'node',
-            ['../../../node_modules/serverless/bin/serverless', 'deploy'],
-            { cwd: `${__dirname}/${folder}` },
-        );
+        const subprocess = spawnSync('node', [pathToServerlessFramework, 'deploy'], {
+            cwd: `${__dirname}/${folder}`,
+        });
         const stdout = subprocess.stdout.toString('utf-8');
         const confirmed = stdout.includes('Command confirmed.');
         const notConfirmed = stdout.includes('Command not confirmed.');

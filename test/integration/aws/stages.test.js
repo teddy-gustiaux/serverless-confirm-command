@@ -5,13 +5,14 @@ const dirtyChai = require('dirty-chai');
 
 use(dirtyChai);
 
-describe('Integration tests of the plugin - using stages only', () => {
+describe('Integration tests of the plugin - using AWS stages only', () => {
     const folder = 'stages';
+    const pathToServerlessFramework = '../../../../node_modules/serverless/bin/serverless';
 
     it('should indicate the command as not confirmed if the option is not provided', () => {
         const subprocess = spawnSync(
             'node',
-            ['../../../node_modules/serverless/bin/serverless', 'deploy', '--stage', 'prod'],
+            [pathToServerlessFramework, 'deploy', '--stage', 'prod'],
             { cwd: `${__dirname}/${folder}` },
         );
         const stdout = subprocess.stdout.toString('utf-8');
@@ -24,13 +25,7 @@ describe('Integration tests of the plugin - using stages only', () => {
     it('should indicate the command as confirmed if the option is provided', () => {
         const subprocess = spawnSync(
             'node',
-            [
-                '../../../node_modules/serverless/bin/serverless',
-                'deploy',
-                '--stage',
-                'prod',
-                '--confirm',
-            ],
+            [pathToServerlessFramework, 'deploy', '--stage', 'prod', '--confirm'],
             { cwd: `${__dirname}/${folder}` },
         );
         const stdout = subprocess.stdout.toString('utf-8');
@@ -41,11 +36,9 @@ describe('Integration tests of the plugin - using stages only', () => {
     }).timeout(5000);
 
     it('should not do anything if the command does not require confirmation', () => {
-        const subprocess = spawnSync(
-            'node',
-            ['../../../node_modules/serverless/bin/serverless', 'remove'],
-            { cwd: `${__dirname}/${folder}` },
-        );
+        const subprocess = spawnSync('node', [pathToServerlessFramework, 'remove'], {
+            cwd: `${__dirname}/${folder}`,
+        });
         const stdout = subprocess.stdout.toString('utf-8');
         const confirmed = stdout.includes('Command confirmed.');
         const notConfirmed = stdout.includes('Command not confirmed.');

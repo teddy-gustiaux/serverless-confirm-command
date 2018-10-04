@@ -10,11 +10,12 @@ functions:
     handler: handler.hello
 
 plugins:
-  localPath: '../../../src'
+  localPath: '../../../../src'
   modules:
   - serverless-confirm-command
 
 custom:
   confirm:
-    stages:
-      - 'prod'
+    aws:
+      stages:
+        - 'prod'
