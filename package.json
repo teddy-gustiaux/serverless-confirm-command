@@ -1,7 +1,7 @@
 {
   "name": "serverless-confirm-command",
   "version": "0.0.1",
-  "description": "Serverless plugin making commands (and optionally stages) requiring confirmation before running",
+  "description": "Serverless plugin to make commands (and provider-specific options) requiring confirmation before execution.",
   "author": "Teddy Gustiaux <code@gustiaux.com>",
   "license": "MIT",
   "main": "src/serverles-confirm-command.js",
@@ -27,6 +27,7 @@
     "lint:file": "eslint --config .eslintrc.json",
     "fix:all": "eslint --config .eslintrc.json . --ext .js --fix",
     "fix:file": "eslint --config .eslintrc.json --fix",
+    "test": "nyc mocha --recursive test/**/*.test.js",
     "test:all": "nyc mocha --recursive test/**/*.test.js",
     "test:file": "nyc mocha",
     "test:watch": "mocha --watch"
