@@ -1,8 +1,11 @@
-# Ignore configuration root files
+# Do not publish configuration root files
 .editorconfig
 .eslintignore
 .eslintrc.json
 .prettierrc.json
 
-# Test source files
+# Do not publish test files
 test
+
+# Do not publish code coverage report files
+.nyc_output
