@@ -22,6 +22,10 @@ One of the intentions of this plugin is to make it more difficult to accidentall
 Although it provides another layer of protection, it does *not* replace deployment and security policies for your applications.
 Please do not forget to set up and protect your deployments appropriately (especially your production environment).
 
+## Demonstration
+
+[![GIF demo](https://raw.githubusercontent.com/teddy-gustiaux/serverless-confirm-command/master/demo/demo.gif)](https://raw.githubusercontent.com/teddy-gustiaux/serverless-confirm-command/master/demo/demo.gif)
+
 ## Documentation
 
 - [Prerequistes](#prerequistes)
