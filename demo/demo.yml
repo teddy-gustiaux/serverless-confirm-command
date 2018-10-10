@@ -1,0 +1,369 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: zsh ./generate-demo.sh
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /mnt/hgfs/Shared
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 85
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 20
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: serverless-confirm-command
+    style: []
+      #border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Meslo for Powerline, Meslo LG M for Powerline, Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 14
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 3557
+    content: "\e[1m\e[32m→\e[39m  \e[96mdemo\e[39m\e(B\e[m #"
+  - delay: 181
+    content: ' '
+  - delay: 91
+    content: L
+  - delay: 91
+    content: e
+  - delay: 91
+    content: t'
+  - delay: 90
+    content: s
+  - delay: 90
+    content: ' '
+  - delay: 90
+    content: r
+  - delay: 91
+    content: e
+  - delay: 90
+    content: mo
+  - delay: 181
+    content: v
+  - delay: 91
+    content: e
+  - delay: 91
+    content: ' '
+  - delay: 90
+    content: o
+  - delay: 91
+    content: ur
+  - delay: 91
+    content: ' '
+  - delay: 90
+    content: s
+  - delay: 91
+    content: e
+  - delay: 91
+    content: r
+  - delay: 91
+    content: ve
+  - delay: 181
+    content: r
+  - delay: 91
+    content: l
+  - delay: 90
+    content: e
+  - delay: 91
+    content: s
+  - delay: 90
+    content: 's '
+  - delay: 91
+    content: a
+  - delay: 90
+    content: p
+  - delay: 91
+    content: p
+  - delay: 90
+    content: l
+  - delay: 91
+    content: ic
+  - delay: 181
+    content: a
+  - delay: 90
+    content: t
+  - delay: 91
+    content: i
+  - delay: 90
+    content: o
+  - delay: 91
+    content: n!
+  - delay: 90
+    content: "\r\n\e[1m\e[32m→\e[39m  \e[96mdemo\e[39m\e(B\e[m s"
+  - delay: 181
+    content: l
+  - delay: 91
+    content: s
+  - delay: 90
+    content: ' '
+  - delay: 91
+    content: re
+  - delay: 91
+    content: m
+  - delay: 91
+    content: o
+  - delay: 90
+    content: v
+  - delay: 90
+    content: e
+  - delay: 91
+    content: "\r\n"
+  - delay: 1257
+    content: " \r\n\e[33m  Serverless Error ---------------------------------------\e[39m\r\n \r\n  Command not confirmed. Use [--confirm] or change the configuration of the plugin.\r\n \r\n\e[33m  Get Support --------------------------------------------\e[39m\r\n\e[33m     Docs:          \e[39mdocs.serverless.com\r\n\e[33m     Bugs:          \e[39mgithub.com/serverless/serverless/issues\r\n\e[33m     Issues:        \e[39mforum.serverless.com\r\n \r\n\e[33m  Your Environment Information -----------------------------\e[39m\r\n\e[33m     OS:                     linux\e[39m\r\n\e[33m     Node Version:           10.11.0\e[39m\r\n\e[33m     Serverless Version:     1.32.0\e[39m\r\n \r\n"
+  - delay: 286
+    content: "\e[1m\e[32m→\e[39m  \e[96mdemo\e[39m\e(B\e[m #"
+  - delay: 182
+    content: ' '
+  - delay: 90
+    content: R
+  - delay: 91
+    content: i
+  - delay: 90
+    content: gh
+  - delay: 91
+    content: t
+  - delay: 90
+    content: ','
+  - delay: 90
+    content: ' '
+  - delay: 92
+    content: I
+  - delay: 90
+    content: ' h'
+  - delay: 181
+    content: a
+  - delay: 91
+    content: v
+  - delay: 91
+    content: e
+  - delay: 90
+    content: ' '
+  - delay: 91
+    content: to
+  - delay: 91
+    content: ' '
+  - delay: 90
+    content: c
+  - delay: 91
+    content: o
+  - delay: 90
+    content: 'n'
+  - delay: 91
+    content: fi
+  - delay: 181
+    content: r
+  - delay: 90
+    content: m
+  - delay: 91
+    content: ' '
+  - delay: 90
+    content: t
+  - delay: 91
+    content: hi
+  - delay: 91
+    content: s
+  - delay: 90
+    content: '!'
+  - delay: 92
+    content: "\r\n\e[1m\e[32m→\e[39m  \e[96mdemo\e[39m\e(B\e[m s"
+  - delay: 181
+    content: l
+  - delay: 91
+    content: s
+  - delay: 89
+    content: ' '
+  - delay: 91
+    content: re
+  - delay: 90
+    content: m
+  - delay: 90
+    content: o
+  - delay: 91
+    content: v
+  - delay: 91
+    content: e
+  - delay: 91
+    content: ' -'
+  - delay: 182
+    content: '-'
+  - delay: 90
+    content: c
+  - delay: 91
+    content: o
+  - delay: 90
+    content: 'n'
+  - delay: 90
+    content: fi
+  - delay: 90
+    content: r
+  - delay: 91
+    content: m
+  - delay: 90
+    content: ' '
+  - delay: 91
+    content: '#'
+  - delay: 91
+    content: ' T'
+  - delay: 180
+    content: h
+  - delay: 91
+    content: i
+  - delay: 90
+    content: s
+  - delay: 91
+    content: ' '
+  - delay: 91
+    content: wi
+  - delay: 91
+    content: l
+  - delay: 91
+    content: l
+  - delay: 90
+    content: ' '
+  - delay: 90
+    content: a
+  - delay: 91
+    content: ct
+  - delay: 182
+    content: u
+  - delay: 91
+    content: a
+  - delay: 91
+    content: l
+  - delay: 90
+    content: l
+  - delay: 91
+    content: 'y '
+  - delay: 91
+    content: r
+  - delay: 92
+    content: e
+  - delay: 91
+    content: m
+  - delay: 91
+    content: o
+  - delay: 91
+    content: ve
+  - delay: 181
+    content: ' '
+  - delay: 91
+    content: t
+  - delay: 92
+    content: h
+  - delay: 90
+    content: e
+  - delay: 92
+    content: ' a'
+  - delay: 90
+    content: p
+  - delay: 91
+    content: p
+  - delay: 91
+    content: l
+  - delay: 91
+    content: i
+  - delay: 90
+    content: ca
+  - delay: 183
+    content: t
+  - delay: 91
+    content: i
+  - delay: 91
+    content: o
+  - delay: 91
+    content: 'n'
+  - delay: 91
+    content: "!\r\n"
