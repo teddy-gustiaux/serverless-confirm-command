@@ -9,3 +9,6 @@ test
 
 # Do not publish code coverage report files
 .nyc_output
+
+# Do not publish demo files
+demo
