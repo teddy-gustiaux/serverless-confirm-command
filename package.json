@@ -1,6 +1,6 @@
 {
   "name": "serverless-confirm-command",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Serverless plugin to make commands (and provider-specific options) requiring confirmation before execution.",
   "author": "Teddy Gustiaux <code@gustiaux.com>",
   "license": "MIT",
