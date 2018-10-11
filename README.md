@@ -14,7 +14,7 @@ This [Serverless Framework](https://github.com/serverless/serverless) plugin all
 
 ## Changelog
 
-You can find the [changelog](https://github.com/teddy-gustiaux/serverless-confirm-command/blob/master/CHANGELOG.md) here or in the [releases](https://github.com/teddy-gustiaux/serverless-confirm-command/releases) section.
+You can find the changelog [here](https://github.com/teddy-gustiaux/serverless-confirm-command/blob/master/CHANGELOG.md) or in the [releases](https://github.com/teddy-gustiaux/serverless-confirm-command/releases) section.
 
 ## Disclaimer
 
