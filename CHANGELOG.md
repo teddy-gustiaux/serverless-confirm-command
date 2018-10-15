@@ -2,18 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Additionally, the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) format is respected and used to generate the [conventional changelog](https://github.com/conventional-changelog/conventional-changelog).
 
-## [Unreleased]
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/teddy-gustiaux/serverless-confirm-command/compare/v1.0.1...v1.0.2) (2018-10-15)
 
-### Changed
+### Bug Fixes
 
-- Nothing so far
+* package.json incorrect entry point ([f153dc2](https://github.com/teddy-gustiaux/serverless-confirm-command/commit/f153dc2))
 
-## [1.0.1] - 2018-10-09
+<a name="1.0.1"></a>
+## 1.0.1 (2018-10-09)
 
-### Added
+### Features
 
-- Support for `deploy` and `remove` commands
-- Support for AWS stages and command/stage pairs
+* support for `deploy` and `remove` commands
+* support for AWS stages and command/stage pairs
