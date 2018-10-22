@@ -12,7 +12,7 @@ describe('Integration tests of the plugin - using command and AWS stage pairs', 
     it('should indicate the command as not confirmed if the option is not provided', () => {
         const subprocess = spawnSync(
             'node',
-            [pathToServerlessFramework, 'remove', '--stage', 'prod'],
+            [pathToServerlessFramework, 'deploy function', '--stage', 'prod'],
             { cwd: `${__dirname}/${folder}` },
         );
         const stdout = subprocess.stdout.toString('utf-8');
@@ -25,7 +25,7 @@ describe('Integration tests of the plugin - using command and AWS stage pairs', 
     it('should indicate the command as confirmed if the option is provided', () => {
         const subprocess = spawnSync(
             'node',
-            [pathToServerlessFramework, 'remove', '--stage', 'prod', '--confirm'],
+            [pathToServerlessFramework, 'deploy function', '--stage', 'prod', '--confirm'],
             { cwd: `${__dirname}/${folder}` },
         );
         const stdout = subprocess.stdout.toString('utf-8');

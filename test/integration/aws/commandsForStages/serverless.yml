@@ -18,4 +18,4 @@ custom:
   confirm:
     aws:
       commandsForStages:
-        - 'remove:prod'
+        - 'deploy function:prod'

@@ -14,6 +14,11 @@ module.exports = {
         'webtasks',
     ],
 
+    msgConfirmed: 'Command confirmed. Proceeding...',
+
+    msgNotConfirmed:
+        'Command not confirmed. Use [--confirm] or change the configuration of the plugin.',
+
     buildCustomConfirm(commands, stages, commandsForStages) {
         return {
             confirm: {
@@ -27,7 +32,7 @@ module.exports = {
     },
 
     buildServerless(processedCommands, stage, custom, provider) {
-        return {
+        const serverlessObject = {
             processedInput: {
                 commands: processedCommands,
                 options: {
@@ -53,6 +58,16 @@ module.exports = {
                 custom,
             },
         };
+        if (provider === 'aws') {
+            serverlessObject.providers = {
+                aws: {
+                    getStage() {
+                        return stage;
+                    },
+                },
+            };
+        }
+        return serverlessObject;
     },
 
     constructPlugin(processedCommands, stage, custom, provider) {

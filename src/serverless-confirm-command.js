@@ -2,14 +2,17 @@ const has = Object.prototype.hasOwnProperty;
 
 class ServerlessConfirmCommand {
     constructor(serverless, options) {
-        this.serverless = serverless;
-        this.provider = this.serverless.service.provider.name;
         this.options = options;
+        this.serverless = serverless;
         this.serverlessLog = serverless.cli.log.bind(serverless.cli);
+        this.provider = this.serverless.service.provider.name;
         this.command = null;
         if (serverless.processedInput.commands.length > 0) {
-            [this.command] = serverless.processedInput.commands;
+            this.command = serverless.processedInput.commands.join(' ').trim();
         }
+        this.msgConfirmed = 'Command confirmed. Proceeding...';
+        this.msgNotConfirmed =
+            'Command not confirmed. Use [--confirm] or change the configuration of the plugin.';
         this.defaultConfiguration = {
             commands: [],
             aws: {
@@ -17,16 +20,19 @@ class ServerlessConfirmCommand {
                 commandsForStages: [],
             },
         };
-        this.hooks = this.buildHooks();
+        this.hooks = {};
         this.buildCustomConfiguration();
-    }
-
-    buildHooks() {
-        return {
-            // Before [deploy] (as we do not want the package building to happen before checking)
-            'before:package:createDeploymentArtifacts': this.checkConfirmation.bind(this),
-            'before:remove:remove': this.checkConfirmation.bind(this),
-        };
+        /**
+         * Although performing the verification directly in the constructor is not ideal,
+         * it ensures that all commands are supported by the plugin.
+         *
+         * It also bypasses issues due to some internal workarounds of the Serverless Framework
+         * with event hooks (such as AWS API keys and usage plans).
+         *
+         * Therefore, this solution is better than hook bindings
+         * for the specific use case of this plugin.
+         */
+        this.checkConfirmation();
     }
 
     buildCustomConfiguration() {
@@ -61,17 +67,15 @@ class ServerlessConfirmCommand {
     }
 
     commandConfirmed() {
-        this.serverlessLog('Command confirmed. Proceeding...');
+        this.serverlessLog(this.msgConfirmed);
     }
 
     commandNotConfirmed() {
-        throw new this.serverless.classes.Error(
-            'Command not confirmed. Use [--confirm] or change the configuration of the plugin.',
-        );
+        throw new this.serverless.classes.Error(this.msgNotConfirmed);
     }
 
     populateStage() {
-        this.stage = this.provider === 'aws' ? this.serverless.service.provider.stage : null;
+        this.stage = this.provider === 'aws' ? this.serverless.providers.aws.getStage() : null;
     }
 
     checkConfirmation() {
