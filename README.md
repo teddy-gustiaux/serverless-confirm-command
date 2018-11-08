@@ -8,9 +8,11 @@ This [Serverless Framework](https://github.com/serverless/serverless) plugin all
 
 ## Features
 
-- Works with any cloud provider (and any runtime)
-- Supports `deploy` and `remove` commands
+- Works with all cloud providers (and all runtimes)
+- Supports all CLI commands
 - Supports AWS stages and command/stage pairs
+
+You can find a list of all serverless infrastructure providers (as well as their associated documentation) [here](https://serverless.com/framework/docs/providers/).
 
 ## Changelog
 
@@ -75,6 +77,13 @@ custom:
 ```
 
 For instance, the configuration above will require both the `deploy` and `remove` commands to be confirmed.
+
+#### List of commands
+
+Please refer to the CLI reference of each provider for a complete list of available commands.
+
+Additionally, it is important to note that each command possessing its own section in the documentation is considered a separate command.
+For instance, if you are using AWS as your cloud provider, `deploy` and `deploy function` are considered to be [two different commands](https://serverless.com/framework/docs/providers/aws/cli-reference/).
 
 ### AWS options
 
