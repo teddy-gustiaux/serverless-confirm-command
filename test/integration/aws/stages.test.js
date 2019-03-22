@@ -17,7 +17,7 @@ describe('Integration tests of the plugin - using AWS stages only', () => {
         );
         const stdout = subprocess.stdout.toString('utf-8');
         const notConfirmed = stdout.includes('Command not confirmed.');
-        const serverlessError = stdout.includes('Serverless Error');
+        const serverlessError = stdout.includes('Serverless Confirm Command Error');
         expect(notConfirmed).to.be.true();
         expect(serverlessError).to.be.true();
     }).timeout(5000);
@@ -30,9 +30,9 @@ describe('Integration tests of the plugin - using AWS stages only', () => {
         );
         const stdout = subprocess.stdout.toString('utf-8');
         const confirmed = stdout.includes('Command confirmed.');
-        const serverlessError = stdout.includes('Serverless Error');
+        const serverlessError = stdout.includes('Serverless Confirm Command Error');
         expect(confirmed).to.be.true();
-        expect(serverlessError).to.be.true();
+        expect(serverlessError).to.be.false();
     }).timeout(5000);
 
     it('should not do anything if the command does not require confirmation', () => {
@@ -42,9 +42,9 @@ describe('Integration tests of the plugin - using AWS stages only', () => {
         const stdout = subprocess.stdout.toString('utf-8');
         const confirmed = stdout.includes('Command confirmed.');
         const notConfirmed = stdout.includes('Command not confirmed.');
-        const serverlessError = stdout.includes('Serverless Error');
+        const serverlessError = stdout.includes('Serverless Confirm Command Error');
         expect(notConfirmed).to.be.false();
         expect(confirmed).to.be.false();
-        expect(serverlessError).to.be.true();
+        expect(serverlessError).to.be.false();
     }).timeout(5000);
 });
