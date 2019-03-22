@@ -10,7 +10,7 @@ functions:
     handler: handler.hello
 
 plugins:
-  localPath: '../../../../src'
+  localPath: '../../../../lib'
   modules:
   - serverless-confirm-command
 

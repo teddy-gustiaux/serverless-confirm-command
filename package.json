@@ -4,7 +4,7 @@
   "description": "Serverless plugin to make commands (and provider-specific options) requiring confirmation before execution.",
   "author": "Teddy Gustiaux <code@gustiaux.com>",
   "license": "MIT",
-  "main": "src/serverless-confirm-command.js",
+  "main": "lib/serverless-confirm-command.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/teddy-gustiaux/serverless-confirm-command.git"

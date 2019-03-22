@@ -1,5 +1,5 @@
 // Local dependencies
-const ServerlessConfirmCommand = require('../../src/serverless-confirm-command.js');
+const ServerlessConfirmCommand = require('../../lib/serverless-confirm-command.js');
 
 module.exports = {
     serverlessProviders: [
