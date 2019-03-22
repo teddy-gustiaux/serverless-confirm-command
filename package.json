@@ -36,18 +36,18 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "4.2.0",
-    "conventional-changelog-cli": "2.0.5",
+    "conventional-changelog-cli": "2.0.12",
     "dirty-chai": "2.0.1",
-    "eslint": "5.7.0",
+    "eslint": "5.15.3",
     "eslint-config-airbnb-base": "13.1.0",
-    "eslint-config-prettier": "3.1.0",
-    "eslint-plugin-import": "2.14.0",
-    "eslint-plugin-prettier": "3.0.0",
-    "mocha": "5.2.0",
-    "nyc": "13.1.0",
-    "prettier": "1.14.3",
-    "serverless": "^1.32.0",
-    "sinon": "7.0.0",
-    "sinon-chai": "3.2.0"
+    "eslint-config-prettier": "4.1.0",
+    "eslint-plugin-import": "2.16.0",
+    "eslint-plugin-prettier": "3.0.1",
+    "mocha": "6.0.2",
+    "nyc": "13.3.0",
+    "prettier": "1.16.4",
+    "serverless": "1.39.1",
+    "sinon": "7.3.0",
+    "sinon-chai": "3.3.0"
   }
 }
