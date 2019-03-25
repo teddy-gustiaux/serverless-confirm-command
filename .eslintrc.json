@@ -13,6 +13,7 @@
     "mocha": true
   },
   "rules": {
+    "linebreak-style": "off",
     "prettier/prettier": "error"
   }
 }

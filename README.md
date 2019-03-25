@@ -129,7 +129,7 @@ custom:
 Using the command `serverless remove` will produce an error:
 
 ```YAML
-  Serverless Error ---------------------------------------
+  Serverless Confirm Command Error ---------------------------------------
 
   Command not confirmed. Use [--confirm] or change the configuration of the plugin.
 ```
