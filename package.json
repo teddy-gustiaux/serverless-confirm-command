@@ -39,7 +39,7 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "4.2.0",
-    "conventional-changelog-cli": "2.0.12",
+    "conventional-changelog-cli": "2.0.21",
     "dirty-chai": "2.0.1",
     "eslint": "5.16.0",
     "eslint-config-airbnb-base": "13.1.0",
