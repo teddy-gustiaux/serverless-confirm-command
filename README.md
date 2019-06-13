@@ -3,6 +3,7 @@
 [![serverless](http://public.serverless.com/badges/v3.svg)](https://www.serverless.com)
 [![npm package](https://badge.fury.io/js/serverless-confirm-command.svg)](https://badge.fury.io/js/serverless-confirm-command)
 [![Build Status](https://travis-ci.com/teddy-gustiaux/serverless-confirm-command.svg?branch=master)](https://travis-ci.com/teddy-gustiaux/serverless-confirm-command)
+[![Code Coverage](https://img.shields.io/codecov/c/github/teddy-gustiaux/serverless-confirm-command.svg)](https://codecov.io/gh/teddy-gustiaux/serverless-confirm-command)
 [![License](https://img.shields.io/badge/License-MIT-lightrey.svg)](https://opensource.org/licenses/MIT)
 
 This [Serverless Framework](https://github.com/serverless/serverless) plugin allows you to define commands (as well as provider-specific options) that will require confirmation before being executed.
@@ -31,12 +32,21 @@ Please do not forget to set up and protect your deployments appropriately (espec
 
 ## Documentation
 
-- [Prerequistes](#prerequistes)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Example](#example)
-- [License](#license)
+- [Serverless Confirm Command](#serverless-confirm-command)
+  - [Features](#features)
+  - [Changelog](#changelog)
+  - [Disclaimer](#disclaimer)
+  - [Demonstration](#demonstration)
+  - [Documentation](#documentation)
+  - [Prerequistes](#prerequistes)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+    - [Commands (provider-agnostic)](#commands-provider-agnostic)
+      - [List of commands](#list-of-commands)
+    - [AWS options](#aws-options)
+  - [Usage](#usage)
+  - [Example](#example)
+  - [License](#license)
 
 ## Prerequistes
 
