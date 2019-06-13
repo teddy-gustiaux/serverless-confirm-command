@@ -3,6 +3,7 @@ node_modules
 
 ##### Code coverage
 .nyc_output
+coverage
 
 ##### WebStorm
 .idea/*
