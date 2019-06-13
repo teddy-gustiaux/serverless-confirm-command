@@ -35,7 +35,7 @@
     "test:file": "nyc mocha",
     "test:watch": "mocha --watch",
     "build:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "codecov": "nyc report --reporter=text-lcov > coverage/coverage.lcov && codecov"
+    "codecov": "nyc report --reporter=text-lcov > .nyc_output/coverage.lcov && codecov"
   },
   "dependencies": {},
   "devDependencies": {
