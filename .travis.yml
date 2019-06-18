@@ -5,14 +5,9 @@ node_js:
 
 os:
   - linux
-  - osx
 
 node_js:
   - "stable"
-
-env:
-  - AWS_ACCESS_KEY_ID=your-key-here
-  - AWS_SECRET_ACCESS_KEY=your-secret-key-here
 
 script:
   - npm run lint:all
