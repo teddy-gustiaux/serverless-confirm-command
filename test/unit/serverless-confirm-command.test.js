@@ -11,10 +11,29 @@ use(sinonChai);
 use(dirtyChai);
 
 describe('Unit tests of the plugin - Common features', () => {
-    it('should not fail if the configuration is missing', () => {
+    it('should not fail if the entire configuration is missing', () => {
         const runTestWith = provider => {
             const fn = () => {
                 const plugin = helpers.constructPlugin([], null, {}, provider);
+                const defaultConfiguration = {
+                    commands: [],
+                    aws: {
+                        stages: [],
+                        commandsForStages: [],
+                    },
+                };
+                expect(plugin.customConfig).to.deep.equal(defaultConfiguration);
+            };
+            expect(fn).to.not.throw();
+        };
+        helpers.testWithAllProviders(runTestWith, []);
+    });
+
+    it('should not fail if the AWS configuration is not provided', () => {
+        const runTestWith = provider => {
+            const fn = () => {
+                const emptyCommonConfig = { confirm: { commands: [] } };
+                const plugin = helpers.constructPlugin([], null, emptyCommonConfig, provider);
                 const defaultConfiguration = {
                     commands: [],
                     aws: {
