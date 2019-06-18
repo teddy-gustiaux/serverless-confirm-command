@@ -18,7 +18,7 @@ describe('Integration tests of the plugin - using commands only', () => {
         const serverlessError = stdout.includes('Serverless Confirm Command Error');
         expect(notConfirmed).to.be.true();
         expect(serverlessError).to.be.true();
-    }).timeout(5000);
+    }).timeout(10000);
 
     it('should indicate the command as confirmed if the option is provided', () => {
         const subprocess = spawnSync(
@@ -33,7 +33,7 @@ describe('Integration tests of the plugin - using commands only', () => {
         const serverlessError = stdout.includes('Serverless Confirm Command Error');
         expect(confirmed).to.be.true();
         expect(serverlessError).to.be.false();
-    }).timeout(5000);
+    }).timeout(10000);
 
     it('should not do anything if the command does not require confirmation', () => {
         const subprocess = spawnSync('node', [pathToServerlessFramework, 'deploy'], {
@@ -46,5 +46,5 @@ describe('Integration tests of the plugin - using commands only', () => {
         expect(notConfirmed).to.be.false();
         expect(confirmed).to.be.false();
         expect(serverlessError).to.be.false();
-    }).timeout(5000);
+    }).timeout(10000);
 });
