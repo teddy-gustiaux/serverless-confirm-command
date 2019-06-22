@@ -5,6 +5,7 @@ const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 // Local dependencies
 const ServerlessConfirmCommand = require('../../lib/serverless-confirm-command.js');
+const ServerlessConfirmCommandError = require('../../lib/serverless-confirm-command-error.js');
 const helpers = require('./helpers');
 
 use(sinonChai);
@@ -91,6 +92,31 @@ describe('Unit tests of the plugin - Common features', () => {
         setupTestWith(['deploy function'], ['deploy', 'function']);
     });
 
+    it('should require confirmation if the command is listed and debug mode is enabled', () => {
+        const setupTestWith = (commandList, commandsExecuted) => {
+            const runTestWith = (processedCommands, stage, custom, provider) => {
+                const fn = () => {
+                    helpers.constructPlugin(processedCommands, stage, custom, provider);
+                };
+                expect(fn).to.throw(helpers.msgNotConfirmed);
+            };
+            const custom = helpers.buildCustomConfirm(commandList, [], []);
+            helpers.testWithAllProviders(runTestWith, [commandsExecuted, null, custom]);
+            helpers.testWithAllProviders(runTestWith, [commandsExecuted, undefined, custom]);
+            helpers.testWithAllProviders(runTestWith, [commandsExecuted, '', custom]);
+            helpers.testWithAllProviders(runTestWith, [commandsExecuted, [], custom]);
+            helpers.testWithAllProviders(runTestWith, [commandsExecuted, {}, custom]);
+            helpers.testWithAllProviders(runTestWith, [commandsExecuted, 'dev', custom]);
+        };
+        process.env.SLS_DEBUG = '*';
+        setupTestWith(['deploy'], ['deploy']);
+        setupTestWith(['deploy', 'another'], ['deploy']);
+        setupTestWith(['another', 'deploy'], ['deploy']);
+        setupTestWith(['deploy function'], ['deploy function']);
+        setupTestWith(['deploy function'], ['deploy', 'function']);
+        delete process.env.SLS_DEBUG;
+    });
+
     it('should not require confirmation if the command is not listed', () => {
         const setupTestWith = commandList => {
             const runTestWith = (processedCommands, stage, custom, provider) => {
@@ -127,6 +153,28 @@ describe('Unit tests of the plugin - Common features', () => {
             expect(runTest).to.throw(helpers.msgNotConfirmed);
         };
         helpers.testWithAllProviders(runTestWith, []);
+    });
+
+    it('should print the proper error if confirmation is required and not provided and debug mode is enabled', () => {
+        const runTestWith = provider => {
+            const runTest = () => {
+                const custom = helpers.buildCustomConfirm(['deploy'], [], []);
+                helpers.constructPlugin(['deploy'], 'dev', custom, provider);
+            };
+            expect(runTest).to.throw(helpers.msgNotConfirmed);
+        };
+        process.env.SLS_DEBUG = '*';
+        helpers.testWithAllProviders(runTestWith, []);
+        delete process.env.SLS_DEBUG;
+    });
+
+    it('should not print the default Serverless initialization error', () => {
+        const runTest = () => {
+            throw new ServerlessConfirmCommandError(
+                'Serverless plugin "serverless-confirm-command" initialization errored: my fake error message',
+            );
+        };
+        expect(runTest).to.throw(/my fake error message/);
     });
 
     it('should print the proper message if confirmation is required and provided', () => {
@@ -214,6 +262,25 @@ describe('Unit tests of the plugin - AWS features', () => {
         setupTestWith(['deploy:prod', 'deploy:dev'], ['deploy']);
         setupTestWith(['deploy:prod', 'remove:dev'], ['deploy']);
         setupTestWith(['deploy function:prod'], ['deploy function']);
+    });
+
+    it('should require confirmation if the command and stage pair is listed and debug mode is enabled', () => {
+        const setupTestWith = (commandsForStagesList, commandsExecuted) => {
+            const runTestWith = (processedCommands, stage, custom) => {
+                const fn = () => {
+                    helpers.constructPlugin(processedCommands, stage, custom, 'aws');
+                };
+                expect(fn).to.throw(helpers.msgNotConfirmed);
+            };
+            const custom = helpers.buildCustomConfirm([], [], commandsForStagesList);
+            runTestWith(commandsExecuted, 'prod', custom);
+        };
+        process.env.SLS_DEBUG = '*';
+        setupTestWith(['deploy:prod'], ['deploy']);
+        setupTestWith(['deploy:prod', 'deploy:dev'], ['deploy']);
+        setupTestWith(['deploy:prod', 'remove:dev'], ['deploy']);
+        setupTestWith(['deploy function:prod'], ['deploy function']);
+        delete process.env.SLS_DEBUG;
     });
 
     it('should not require confirmation if the command and stage pair is not listed', () => {
