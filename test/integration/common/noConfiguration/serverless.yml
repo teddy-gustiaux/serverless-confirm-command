@@ -1,4 +1,4 @@
-service: test-integration-commands
+service: test-integration-noConfiguration
 
 provider:
   name: google
@@ -13,8 +13,3 @@ plugins:
   localPath: '../../../../lib'
   modules:
   - serverless-confirm-command
-
-custom:
-  confirm:
-    commands:
-      - 'deploy function'
