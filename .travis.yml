@@ -5,6 +5,7 @@ node_js:
 
 os:
   - linux
+  - osx
 
 node_js:
   - "stable"
