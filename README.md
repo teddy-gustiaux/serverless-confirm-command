@@ -4,6 +4,8 @@
 [![npm package](https://badge.fury.io/js/serverless-confirm-command.svg)](https://badge.fury.io/js/serverless-confirm-command)
 [![Build Status](https://travis-ci.com/teddy-gustiaux/serverless-confirm-command.svg?branch=master)](https://travis-ci.com/teddy-gustiaux/serverless-confirm-command)
 [![Code Coverage](https://img.shields.io/codecov/c/github/teddy-gustiaux/serverless-confirm-command.svg)](https://codecov.io/gh/teddy-gustiaux/serverless-confirm-command)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/teddy-gustiaux/serverless-confirm-command.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/teddy-gustiaux/serverless-confirm-command/context:javascript)
+[![Known Vulnerabilities](https://snyk.io//test/github/teddy-gustiaux/serverless-confirm-command/badge.svg?targetFile=package.json)](https://snyk.io//test/github/teddy-gustiaux/serverless-confirm-command?targetFile=package.json)
 [![License](https://img.shields.io/badge/License-MIT-lightrey.svg)](https://opensource.org/licenses/MIT)
 
 This [Serverless Framework](https://github.com/serverless/serverless) plugin allows you to define commands (as well as provider-specific options) that will require confirmation before being executed.
