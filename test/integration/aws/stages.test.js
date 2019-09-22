@@ -25,7 +25,7 @@ describe('Integration tests of the plugin - using AWS stages only', () => {
     }).timeout(10000);
 
     it('should indicate the command as not confirmed if the option is not provided and debug mode is enabled', () => {
-        const environmentVariables = Object.assign({}, process.env);
+        const environmentVariables = { ...process.env };
         environmentVariables.SLS_DEBUG = '*';
         const subprocess = spawnSync(
             'node',
