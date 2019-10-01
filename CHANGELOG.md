@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 Additionally, the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) format is respected and used to generate the [conventional changelog](https://github.com/conventional-changelog/conventional-changelog).
 
+## [1.2.2](https://github.com/teddy-gustiaux/serverless-confirm-command/compare/v1.2.1...v1.2.2) (2019-10-01)
+
+### Bug Fixes
+
+* display error stack trace only if debug is enabled ([f1f2adc](https://github.com/teddy-gustiaux/serverless-confirm-command/commit/f1f2adc))
+
 ## [1.2.1](https://github.com/teddy-gustiaux/serverless-confirm-command/compare/v1.2.0...v1.2.1) (2019-06-22)
 
 ### Bug Fixes
