@@ -54,7 +54,7 @@
     "nyc": "15.0.0",
     "prettier": "1.19.1",
     "serverless": "1.61.1",
-    "sinon": "8.0.4",
+    "sinon": "8.1.0",
     "sinon-chai": "3.4.0"
   }
 }
