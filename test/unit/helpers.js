@@ -12,6 +12,7 @@ module.exports = {
         'cloudflare',
         'spotinst',
         'webtasks',
+        'knative',
     ],
 
     msgConfirmed: 'Command confirmed. Proceeding...',
