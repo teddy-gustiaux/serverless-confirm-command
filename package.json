@@ -53,7 +53,7 @@
     "mocha": "8.0.1",
     "nyc": "15.1.0",
     "prettier": "2.0.5",
-    "serverless": "1.73.1",
+    "serverless": "1.74.1",
     "sinon": "9.0.2",
     "sinon-chai": "3.5.0"
   }
