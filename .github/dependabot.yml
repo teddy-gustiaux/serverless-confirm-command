@@ -1,0 +1,65 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "10:00"
+  open-pull-requests-limit: 10
+  target-branch: develop
+  ignore:
+  - dependency-name: serverless
+    versions:
+    - 2.21.1
+    - 2.22.0
+    - 2.23.0
+    - 2.25.1
+    - 2.25.2
+    - 2.27.0
+    - 2.27.1
+    - 2.28.0
+    - 2.28.4
+    - 2.28.6
+    - 2.28.7
+    - 2.29.0
+    - 2.30.0
+    - 2.30.3
+    - 2.31.0
+    - 2.32.0
+    - 2.32.1
+    - 2.33.1
+    - 2.34.0
+    - 2.35.0
+    - 2.36.0
+    - 2.37.2
+  - dependency-name: eslint-config-prettier
+    versions:
+    - 7.2.0
+    - 8.0.0
+    - 8.1.0
+    - 8.2.0
+  - dependency-name: eslint
+    versions:
+    - 7.18.0
+    - 7.19.0
+    - 7.20.0
+    - 7.21.0
+    - 7.22.0
+    - 7.23.0
+    - 7.24.0
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+    - 4.0.2
+  - dependency-name: mocha
+    versions:
+    - 8.3.0
+    - 8.3.1
+  - dependency-name: chai
+    versions:
+    - 4.3.0
+    - 4.3.1
+    - 4.3.3
+  - dependency-name: eslint-plugin-prettier
+    versions:
+    - 3.3.1
